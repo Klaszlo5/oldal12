@@ -1,0 +1,19 @@
+FELADAT – React „kis weboldal” hibajavítás
+
+Készítettünk egy egyszerű, többoldalas React alkalmazást (főoldal, rólunk, kapcsolat).
+A fájlok szándékosan tartalmaznak hibákat (útvonal elírások, rossz link használat, 
+wrapper hiánya, hibás eseménynevek, logikai elgépelések).
+
+Feladatod:
+
+1. Nyisd meg a fájlokat: Home.jsx, About.jsx, Contact.jsx, App.jsx, main.jsx
+2. Olvasd el a kommenteket – segítenek megtalálni a hibákat
+3. Javítsd ki a kódot úgy, hogy:
+   - minden oldal megnyíljon
+   - a navigáció ne töltse újra az oldalt
+   - ne legyen hibaüzenet a konzolban
+   - a kód olvasható és szabályos legyen
+4. Teszteld a böngészőben.
+
+Segítség:
+A kommentekben megoldásminták is vannak, de először próbáld önállóan!
