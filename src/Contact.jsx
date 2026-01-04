@@ -1,16 +1,41 @@
+/*
+  FELADAT — egyszeru verzio
+
+  1) Keszits egy nev mezo input elemet
+     Kerdes: Miert kell placeholder?
+     Valasz: Azert, hogy a felhasznalo tudja, mit kell beirnia.
+
+  2) Amikor a felhasznalo gepel a nev mezobe,
+     irasd ki a konzolba a beirt szoveget.
+     Kerdes: Hogyan erem el az input aktualis erteket?
+     Valasz: e.target.value
+
+  3) Amikor a felhasznalo ranyom a Kuldes gombra,
+     az oldal NE frissuljon ujra.
+     Kerdes: Mit kell tenni, hogy az oldal ne toltodjon ujra?
+     Valasz: e.preventDefault()
+
+  4) Kuldeskor jelenjen meg a konzolban:
+     "Elkuldozve"
+*/
+
 export default function Contact() {
   return (
     <>
       <h1>Kapcsolat oldal</h1>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form
+        // IDE KELL A KOD (submit lekezelese)
+        
+      >
         <input
           type="text"
-          placeholder="Írd be a neved"
-          onChange={(e) => console.log(e.target.value)}
+          placeholder="Ird be a neved"
+          // IDE KELL A KOD (nev kiirasa konzolba)
+          
         />
 
-        <button>Küldés</button>
+        <button>Kuldes</button>
       </form>
     </>
   );
