@@ -26,11 +26,13 @@ export default function Home() {
     <>
       {/* MEGOLDAS: cim modositas + className */}
       
+    <h1 className="main-title">Hello, kedves felhasznalo</h1>
 
       <p>Udv a weboldalon!</p>
 
       {/* MEGOLDAS: uj sor a bekezdes ala */}
-      
+          
+    <p>Ez az alkalmazas kezdooldala.</p>
     </>
   );
 }

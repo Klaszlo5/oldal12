@@ -27,12 +27,16 @@ export default function Contact() {
       <form
         // IDE KELL A KOD (submit lekezelese)
         
+      onSubmit={(e) => {
+                e.preventDefault();
+                console.log("Elkuldozve");
+              }}
       >
         <input
           type="text"
           placeholder="Ird be a neved"
           // IDE KELL A KOD (nev kiirasa konzolba)
-          
+          onChange={(e) => console.log("Nev:", e.target.value)}
         />
 
         <button>Kuldes</button>

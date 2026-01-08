@@ -27,20 +27,26 @@
 export default function About({ name = "latogato" }) {
   return (
     // 1.
-    <div className="">
+    <div className="about-page">
 
       <h1>Rolunk oldal</h1>
 
       {/*2.*/}
-      
+      <p>Ez az oldal a projekt rovid bemutatoja.</p>
 
       {/*3.*/}
+      <ul>
+         <li></li>
+         <li>Lista</li>
+         <li>Lista</li>
+      </ul>
       
 
       {/*4.*/}
-      
+      <img src="pic_trulli.jpg" alt="Italian Trulli">
+      </img>
       {/*5.*/}
-      
+      <p>Udvozlunk, {name}!</p>
     </div>
   );
 }

@@ -2,27 +2,32 @@
 
 .about-page {
   /* IDE írd a wrapper doboz beállításait (szélesség, középre igazítás, háttér stb.) */
-
+  max-width: auto;
+  background-color: bisque;
+  margin: 0 auto;
 }
 
 .about-page h1 {
   /* IDE írd, ha nagyobb címet és alatta távolságot szeretnél */
-  
+  font-size: 20px;
+  margin-top: 2px;
 }
 
 .about-page p {
   /* IDE írd, ha halványabb szöveget szeretnél */
- 
+  color: blanchedalmond;
 }
 
 .about-page ul li {
   /* IDE írd, ha szeretnél távolságot a lista elemei közé */
-  
+  margin-bottom: 1px;
 }
 
 .about-page img {
   /* IDE írd, hogy a kép ne lógjon ki, legyen középen és legyen lekerekítve */
- 
+  max-width: 100%;
+  display: block;
+
 }
 
 /* IDE hozhatsz létre extra osztályokat (pl. .kijelolt, .doboz stb.) */
