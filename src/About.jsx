@@ -1,52 +1,60 @@
 /*
-  FELADAT — egyszerusitett About
+********************
+  FELADAT — Értesítések kapcsoló (useState gyakorlás) Készíts egy React komponenst, amely egy értesítési
+  állapotot kezel és jelenít meg.
+********************
 
-  1. Tedd az egészet egy div-be: className="about-page"
-     IDE KELLETT A KOD
-     (alatta lathato a megoldas)
+  1. Hozz létre egy state változót `notifications` néven
+     useState segítségével.
+     - Kezdőértéke legyen: true
 
-  2. A cim alatt legyen egy rovid bekezdes,
-     ami elmondja, mi ez az oldal.
-     IDE KELLETT A KOD
+  2. Jeleníts meg egy <p> elemet, amely:
+     - "Értesítések be vannak kapcsolva" szöveget mutat,
+       ha az állapot true
+     - "Értesítések ki vannak kapcsolva" szöveget mutat,
+       ha az állapot false
 
-  3. Keszits egy 3 pontos listat:
-     - kiknek szol
-     - mit talalsz itt
-     - miert hasznos
-     IDE KELLETT A KOD
+  3. Jeleníts meg egy <button> elemet a felületen.
 
-  4. Tegyel be egy kepet URL-lel.
-     IDE KELLETT A KOD
+  4. A gombra kattintva:
+     - ha az állapot true → váljon false-szá
+     - ha az állapot false → váljon true-vá
 
-  5. EXTRA:
-     Fogadj egy "name" prop-ot es ird ki:
-     Udvozlunk, {name}!
-     IDE KELLETT A KOD
+  5. A gomb felirata mindig az aktuális állapottól függjön:
+     - true esetén: "Kikapcsolás"
+     - false esetén: "Bekapcsolás"
+
+  6. A felhasználó egy pillantással lássa:
+     - az aktuális értesítési állapotot
+     - mit fog csinálni a gomb megnyomása
 */
 
-export default function About({ name = "latogato" }) {
-  return (
-    // 1.
-    <div className="about-page">
 
-      <h1>Rolunk oldal</h1>
+export default function Notifications() {
 
-      {/*2.*/}
-      <p>Ez az oldal a projekt rovid bemutatoja.</p>
 
-      {/*3.*/}
-      <ul>
-         <li></li>
-         <li>Lista</li>
-         <li>Lista</li>
-      </ul>
-      
+   const [, setNotifications] = useState(true);
 
-      {/*4.*/}
-      <img src="pic_trulli.jpg" alt="Italian Trulli">
-      </img>
-      {/*5.*/}
-      <p>Udvozlunk, {name}!</p>
-    </div>
-  );
+
+   return (
+      <div>
+
+         <p>
+            {notifications
+               ? "Értesítések be vannak kapcsolva" : ""}
+         </p>
+
+         <
+            onClick={() =>
+               setNotifications(!)
+            }
+         >
+
+            {notifications
+               ? "Kikapcsolás"  "Bekapcsolás"}
+         </button>
+
+      </div>
+   );
 }
+
