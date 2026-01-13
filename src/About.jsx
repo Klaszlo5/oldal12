@@ -1,60 +1,94 @@
-/*
-********************
-  FELADAT — Értesítések kapcsoló (useState gyakorlás) Készíts egy React komponenst, amely egy értesítési
-  állapotot kezel és jelenít meg.
-********************
-
-  1. Hozz létre egy state változót `notifications` néven
-     useState segítségével.
-     - Kezdőértéke legyen: true
-
-  2. Jeleníts meg egy <p> elemet, amely:
-     - "Értesítések be vannak kapcsolva" szöveget mutat,
-       ha az állapot true
-     - "Értesítések ki vannak kapcsolva" szöveget mutat,
-       ha az állapot false
-
-  3. Jeleníts meg egy <button> elemet a felületen.
-
-  4. A gombra kattintva:
-     - ha az állapot true → váljon false-szá
-     - ha az állapot false → váljon true-vá
-
-  5. A gomb felirata mindig az aktuális állapottól függjön:
-     - true esetén: "Kikapcsolás"
-     - false esetén: "Bekapcsolás"
-
-  6. A felhasználó egy pillantással lássa:
-     - az aktuális értesítési állapotot
-     - mit fog csinálni a gomb megnyomása
-*/
-
+import {???} from "react";
 
 export default function Notifications() {
 
+   const [notifications, setNotifications] = useState(true);
 
-   const [, setNotifications] = useState(true);
+   // ============================
+   // TODO 1. FELADAT
+   // Hozz létre egy state-et,
+   // ami számolja a kattintásokat
+   // ============================
+   const [, setClickCount] = useState(0);
 
+   // ============================
+   // TODO 2. FELADAT
+   // Tárold el szövegként,
+   // mi volt az utolsó állapot
+   // ("Be" / "Ki")
+   // ============================
+   const [last, setLastState] = useState("Be");
 
    return (
       <div>
 
          <p>
             {notifications
-               ? "Értesítések be vannak kapcsolva" : ""}
+               ? "Értesítések be vannak kapcsolva"
+                "Értesítések ki vannak kapcsolva"}
          </p>
 
-         <
-            onClick={() =>
-               setNotifications(!)
-            }
-         >
+         {/* ============================
+             TODO 3. FELADAT
+             Jelenítsd meg a kattintások számát
+         ============================ */}
+         <p>Kattintások száma: {}</p>
 
+         {/* ============================
+             TODO 4. FELADAT
+             Jelenítsd meg az utolsó állapotot
+         ============================ */}
+         <p>Utolsó állapot: {}</p>
+
+         <button
+            onClick={() => {
+               setNotifications(!notifications);
+
+               // ============================
+               // TODO 5. FELADAT
+               // Növeld a kattintásszámlálót
+               // ============================
+               setClickCount(clickCount 1);
+
+               // ============================
+               // TODO 6. FELADAT
+               // Állítsd be az utolsó állapotot
+               // ============================
+               setLastState(notifications  "Ki" : "Be");
+            }}
+         >
             {notifications
-               ? "Kikapcsolás"  "Bekapcsolás"}
-         </button>
+               ? "Kikapcsolás"
+                "Bekapcsolás"}
+         <button>
+
+         {/* ============================
+             TODO 7. FELADAT
+             Jeleníts meg figyelmeztetést,
+             ha a kattintások száma >= 5
+         ============================ */}
+         {clickCount >=  && (
+            <p className="war">
+               Túl sok kattintás!
+            </p>
+         )}
+
+         {/* ============================
+             TODO 8. FELADAT
+             Reset gomb:
+             állítson mindent alaphelyzetbe
+         ============================ */}
+         <button
+            oClick={() => {
+               setNotifications(true);
+               setClickCount(0);
+               setLastState("Be");
+            }}
+            className="reset"
+         >
+            Visszaállítás
+         <button>
 
       </div>
    );
 }
-

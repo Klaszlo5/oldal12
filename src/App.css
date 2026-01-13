@@ -1,50 +1,81 @@
-/*
-  FELADATOK — Frontend alapok (CSS) | KEZDŐ SZINT
-
-  1. OLDAL ALAPBEÁLLÍTÁS
-     - Állíts be betűtípust
-     - Töröld az alap margót
-     - Adj világos háttérszínt
-
-  2. TARTALOM DOBOZ
-     - Legyen középen
-     - Szélessége legyen kb. 350px
-     - Legyen belső térköze
-     - Legyenek lekerekített sarkai
-
-  3. SZÖVEG
-     - Legyen középre igazítva
-     - Legyen jól olvasható
-
-  4. GOMB
-     - Legyen jól látható
-     - Legyen kattintható
-
-  5. GOMB HOVER
-     - Egér fölé vitelekor változzon a színe
-*/
-
-/* 1. OLDAL ALAPBEÁLLÍTÁS */
 body {
-
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
 }
 
 /* 2. TARTALOM DOBOZ */
 div {
-
+  width: 350px;
+  margin: 80px auto; 
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
 }
 
 /* 3. SZÖVEG */
 p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   TODO 9. FELADAT
+   Számláló és állapot szöveg
+
+   👉 Add meg:
+   - kisebb betűméretet
+   - szürke színt
+   - felső vagy alsó margót
+============================ */
+p:nth-of-type(2),
+p:nth-of-type(3) {
+ 
+}
+
+/* ============================
+   TODO 10. FELADAT
+   Figyelmeztetés stílus
+
+   👉 Add meg:
+   - piros színt
+   - félkövér betűt
+   - esetleg felső margót
+============================ */
+.warning {
  
 }
 
 /* 4. GOMB */
 button {
- 
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 /* 5. GOMB HOVER */
 button:hover {
-  
+  background-color: darkblue;
+}
+
+/* ============================
+   TODO 11. FELADAT
+   Reset gomb stílus
+
+   👉 Add meg:
+   - szürke háttérszínt
+   - eltérő hover színt
+   - esetleg felső margót
+============================ */
+.reset {
+ 
+}
+
+.reset:hover {
+ 
 }

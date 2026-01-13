@@ -6,26 +6,91 @@ import { useState } from "react";
 
 export default function Notifications() {
 
-
    const [notifications, setNotifications] = useState(true);
 
+   // ============================
+   // TODO 1. FELADAT
+   // Hozz létre egy state-et,
+   // ami számolja a kattintásokat
+   // ============================
+   const [clickCount, setClickCount] = useState(0);
+
+   // ============================
+   // TODO 2. FELADAT
+   // Tárold el szövegként,
+   // mi volt az utolsó állapot
+   // ("Be" / "Ki")
+   // ============================
+   const [lastState, setLastState] = useState("Be");
 
    return (
       <div>
 
          <p>
             {notifications
-               ? "Értesítések be vannak kapcsolva" : "Értesítések ki vannak kapcsolva"}
+               ? "Értesítések be vannak kapcsolva"
+               : "Értesítések ki vannak kapcsolva"}
          </p>
 
-         <button
-            onClick={() =>
-               setNotifications(!notifications)
-            }
-         >
+         {/* ============================
+             TODO 3. FELADAT
+             Jelenítsd meg a kattintások számát
+         ============================ */}
+         <p>Kattintások száma: {clickCount}</p>
 
+         {/* ============================
+             TODO 4. FELADAT
+             Jelenítsd meg az utolsó állapotot
+         ============================ */}
+         <p>Utolsó állapot: {lastState}</p>
+
+         <button
+            onClick={() => {
+               setNotifications(!notifications);
+
+               // ============================
+               // TODO 5. FELADAT
+               // Növeld a kattintásszámlálót
+               // ============================
+               setClickCount(clickCount + 1);
+
+               // ============================
+               // TODO 6. FELADAT
+               // Állítsd be az utolsó állapotot
+               // ============================
+               setLastState(notifications ? "Ki" : "Be");
+            }}
+         >
             {notifications
-               ? "Kikapcsolás" : "Bekapcsolás"}
+               ? "Kikapcsolás"
+               : "Bekapcsolás"}
+         </button>
+
+         {/* ============================
+             TODO 7. FELADAT
+             Jeleníts meg figyelmeztetést,
+             ha a kattintások száma >= 5
+         ============================ */}
+         {clickCount >= 5 && (
+            <p className="warning">
+               Túl sok kattintás!
+            </p>
+         )}
+
+         {/* ============================
+             TODO 8. FELADAT
+             Reset gomb:
+             állítson mindent alaphelyzetbe
+         ============================ */}
+         <button
+            onClick={() => {
+               setNotifications(true);
+               setClickCount(0);
+               setLastState("Be");
+            }}
+            className="reset"
+         >
+            Visszaállítás
          </button>
 
       </div>
@@ -54,7 +119,38 @@ div {
 /* 3. SZÖVEG */
 p {
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   TODO 9. FELADAT
+   Számláló és állapot szöveg
+
+   👉 Add meg:
+   - kisebb betűméretet
+   - szürke színt
+   - felső vagy alsó margót
+============================ */
+p:nth-of-type(2),
+p:nth-of-type(3) {
+  /* font-size: ??? */
+  /* color: ??? */
+  /* margin: ??? */
+}
+
+/* ============================
+   TODO 10. FELADAT
+   Figyelmeztetés stílus
+
+   👉 Add meg:
+   - piros színt
+   - félkövér betűt
+   - esetleg felső margót
+============================ */
+.warning {
+  /* color: ??? */
+  /* font-weight: ??? */
+  /* margin-top: ??? */
 }
 
 /* 4. GOMB */
@@ -65,10 +161,30 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 /* 5. GOMB HOVER */
 button:hover {
   background-color: darkblue;
 }
+
+/* ============================
+   TODO 11. FELADAT
+   Reset gomb stílus
+
+   👉 Add meg:
+   - szürke háttérszínt
+   - eltérő hover színt
+   - esetleg felső margót
+============================ */
+.reset {
+  /* background-color: ??? */
+  /* margin-top: ??? */
+}
+
+.reset:hover {
+  /* background-color: ??? */
+}
+
 
