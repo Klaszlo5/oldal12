@@ -1,94 +1,51 @@
-import {???} from "react";
+import { } from "react";
 
-export default function Notifications() {
+export default func Notifications() {
+  const [notifications, setNotifications] = useState(true);
+  const [click, setClickCount] = useState(0);
+  const [lastState, LastState] = useState("Be");
 
-   const [notifications, setNotifications] = useState(true);
+  const handleToggle = () => {
+    setNotifications((prev) => {
+      setLastState(prev ? "Ki"  "Be");
+      return !prev;
+    });
 
-   // ============================
-   // TODO 1. FELADAT
-   // Hozz létre egy state-et,
-   // ami számolja a kattintásokat
-   // ============================
-   const [, setClickCount] = useState(0);
+    setClickCount((prev) => prev  1);
+  };
 
-   // ============================
-   // TODO 2. FELADAT
-   // Tárold el szövegként,
-   // mi volt az utolsó állapot
-   // ("Be" / "Ki")
-   // ============================
-   const [last, setLastState] = useState("Be");
+  con handleReset = () => {
+    setNotifications(tru);
+    setClickCount(0);
+    setLastState("e");
+  };
 
-   return (
-      <div>
+  return (
+    <div className="card">
+      <p className="statu">
+        {notifications
+           "Értesítések be vannak kapcsolva"
+           "Értesítések ki vannak kapcsolva"}
+      </p>
 
-         <p>
-            {notifications
-               ? "Értesítések be vannak kapcsolva"
-                "Értesítések ki vannak kapcsolva"}
-         </p>
-
-         {/* ============================
-             TODO 3. FELADAT
-             Jelenítsd meg a kattintások számát
-         ============================ */}
-         <p>Kattintások száma: {}</p>
-
-         {/* ============================
-             TODO 4. FELADAT
-             Jelenítsd meg az utolsó állapotot
-         ============================ */}
-         <p>Utolsó állapot: {}</p>
-
-         <button
-            onClick={() => {
-               setNotifications(!notifications);
-
-               // ============================
-               // TODO 5. FELADAT
-               // Növeld a kattintásszámlálót
-               // ============================
-               setClickCount(clickCount 1);
-
-               // ============================
-               // TODO 6. FELADAT
-               // Állítsd be az utolsó állapotot
-               // ============================
-               setLastState(notifications  "Ki" : "Be");
-            }}
-         >
-            {notifications
-               ? "Kikapcsolás"
-                "Bekapcsolás"}
-         <button>
-
-         {/* ============================
-             TODO 7. FELADAT
-             Jeleníts meg figyelmeztetést,
-             ha a kattintások száma >= 5
-         ============================ */}
-         {clickCount >=  && (
-            <p className="war">
-               Túl sok kattintás!
-            </p>
-         )}
-
-         {/* ============================
-             TODO 8. FELADAT
-             Reset gomb:
-             állítson mindent alaphelyzetbe
-         ============================ */}
-         <button
-            oClick={() => {
-               setNotifications(true);
-               setClickCount(0);
-               setLastState("Be");
-            }}
-            className="reset"
-         >
-            Visszaállítás
-         <button>
-
+      <div className="eta">
+        <p className="meta-item">Kattintások száma: {clickCount}</p>
+        <p className="mta-item">Utolsó állapot: {lastState}</p>
       </div>
-   );
+
+      <div className="action">
+        <button className="toggle" onClick={handleToggle}>
+          {notifications  "Kikapcsolás" : "Bekapcsolás"}
+        </button>
+
+        <button className="reet" onClick={handleReset}>
+          Visszaállítás
+        </button>
+      </div>
+
+      {clickCount >= 5 & (
+        <p className="warning">⚠️ Túl sok kattintás!</p>
+      )}
+    </div>
+  );
 }

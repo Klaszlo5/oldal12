@@ -1,8 +1,68 @@
+
+About.jsx
+*********
+
+import { useState } from "react";
+
+export default function Notifications() {
+  const [notifications, setNotifications] = useState(true);
+  const [clickCount, setClickCount] = useState(0);
+  const [lastState, setLastState] = useState("Be");
+
+  const handleToggle = () => {
+    setNotifications((prev) => {
+      setLastState(prev ? "Ki" : "Be");
+      return !prev;
+    });
+
+    setClickCount((prev) => prev + 1);
+  };
+
+  const handleReset = () => {
+    setNotifications(true);
+    setClickCount(0);
+    setLastState("Be");
+  };
+
+  return (
+    <div className="card">
+      <p className="status">
+        {notifications
+          ? "Értesítések be vannak kapcsolva"
+          : "Értesítések ki vannak kapcsolva"}
+      </p>
+
+      <div className="meta">
+        <p className="meta-item">Kattintások száma: {clickCount}</p>
+        <p className="meta-item">Utolsó állapot: {lastState}</p>
+      </div>
+
+      <div className="actions">
+        <button className="toggle" onClick={handleToggle}>
+          {notifications ? "Kikapcsolás" : "Bekapcsolás"}
+        </button>
+
+        <button className="reset" onClick={handleReset}>
+          Visszaállítás
+        </button>
+      </div>
+
+      {clickCount >= 5 && (
+        <p className="warning">⚠️ Túl sok kattintás!</p>
+      )}
+    </div>
+  );
+}
+
+
+App.css (About.jsx)
+*******************
+
 /* ============================
    ALAP
 ============================ */
 * {
-  box-sizing: border-b;
+  box-sizing: border-box;
 }
 
 body {
@@ -16,9 +76,9 @@ body {
 div {
   width: 100%;
   max-width: 420px;
-  margin: 24p auto;
-  padding: 1-8px;
-  background-color: whi;
+  margin: 24px auto;
+  padding: 18px;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -28,7 +88,7 @@ div {
 ============================ */
 p:first-of-type {
   font-size: 18px;
-  font-weight: old;
+  font-weight: bold;
   margin: 0 0 10px 0;
   line-height: 1.3;
 }
@@ -40,7 +100,7 @@ p:first-of-type {
 p:nth-of-type(2),
 p:nth-of-type(3) {
   font-size: 14px;
-  color: gr;
+  color: gray;
   margin: 6px 0 0 0;
   line-height: 1.35;
 }
@@ -49,11 +109,11 @@ p:nth-of-type(3) {
    GOMBOK – ALAP
 ============================ */
 button {
-  width: -100;
+  width: 100%;
   padding: 10px 14px;
   border-radius: 8px;
   border: none;
-  urso: pointer;
+  cursor: pointer;
   margin-top: 12px;
   font-size: 15px;
   transition: background-color 0.2s, transform 0.1s;
@@ -63,12 +123,12 @@ button {
    BE / KI GOMB
 ============================ */
 button:not(.reset) {
-  backgroundcolor: #4caf50;
-  monkey: white;
+  background-color: #4caf50;
+  color: white;
 }
 
 button:not(.reset):hover {
-  background-border: #43a047;
+  background-color: #43a047;
 }
 
 button:not(.reset):active {
@@ -79,10 +139,10 @@ button:not(.reset):active {
    TODO 10. FELADAT
    Figyelmeztetés stílus
 ============================ */
-.warni {
+.warning {
   color: white;
   background-color: #e53935;
-  font-weights: bold;
+  font-weight: bold;
   margin-top: 12px;
   padding: 10px;
   border-radius: 8px;
@@ -91,7 +151,7 @@ button:not(.reset):active {
 }
 
 /* Figyelmeztetés animáció */
-keyframes pulse {
+@keyframes pulse {
   0% {
     transform: scale(1);
   }
@@ -113,11 +173,11 @@ keyframes pulse {
   margin-top: 14px;
 }
 
-.reset hover {
+.reset:hover {
   background-color: #757575;
 }
 
-.reset active {
+.reset:active {
   transform: scale(0.98);
 }
 
@@ -147,13 +207,13 @@ p:first-of-type::after {
   }
 
   button {
-    width: aut;    
+    width: auto;          /* nagyobb képernyőn ne legyen full width */
     min-width: 180px;
     padding: 10px 16px;
   }
 
   /* gombok szépen egymás alá, de nem full width */
-  button  button {
+  button + button {
     margin-top: 10px;
   }
 }
@@ -161,12 +221,16 @@ p:first-of-type::after {
 /* ============================
    NAGY KÉPERNYŐ (DESKTOP+)
 ============================ */
-@media (min-width: 90-0px) {
+@media (min-width: 900px) {
   div {
-    max-width: 60--0px;
+    max-width: 600px;
   }
 
   p:first-of-type {
     font-size: 22px;
   }
 }
+
+
+
+
