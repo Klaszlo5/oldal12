@@ -1,9 +1,13 @@
-import { usCallbck, useEffect, ueMemo, usetat } from "react";
+
+About.jsx
+*********
+
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "about_notifications_v1";
 const MAX_CLICKS = 10;
 
-const DEFAULT_STA = {
+const DEFAULT_STATE = {
   notifications: true,
   clickCount: 0,
   lastState: "Be",
@@ -37,14 +41,14 @@ function loadInitial() {
 }
 
 export default function About() {
-  const [notifications, setNotifications] = (() => loadInitial().notifications);
+  const [notifications, setNotifications] = useState(() => loadInitial().notifications);
   const [clickCount, setClickCount] = useState(() => loadInitial().clickCount);
-  const [lastState, setLastState] = (() => loadInitial().lastState);
+  const [lastState, setLastState] = useState(() => loadInitial().lastState);
   const [lastChangedAt, setLastChangedAt] = useState(() => loadInitial().lastChangedAt);
 
   // Mentés: csak külső rendszer frissítés
   useEffect(() => {
-    if (typof window === "undefined") retu;
+    if (typeof window === "undefined") return;
     try {
       window.localStorage.setItem(
         STORAGE_KEY,
@@ -95,7 +99,7 @@ export default function About() {
       if (tag === "input" || tag === "textarea" || tag === "select") return;
 
       const key = e.key?.toLowerCase?.();
-      if (key = "t") toggle();
+      if (key === "t") toggle();
       if (key === "r") reset();
     };
 
@@ -126,7 +130,7 @@ export default function About() {
       </div>
 
       {clickCount >= 5 && clickCount < MAX_CLICKS && (
-        <p className="warni">⚠️ Túl sok kattintás!</p>
+        <p className="warning">⚠️ Túl sok kattintás!</p>
       )}
 
       {clickCount >= MAX_CLICKS && (
@@ -135,3 +139,177 @@ export default function About() {
     </div>
   );
 }
+
+
+
+App.css (About.jsx)
+*******************
+
+/* ============================
+   ALAP
+============================ */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  padding: 16px;
+}
+
+/* ============================
+   KOMPONENS KÁRTYA
+============================ */
+.about-card {
+  width: 100%;
+  max-width: 420px;
+  margin: 24px auto;
+  padding: 18px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.status {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+/* Ikon állapotfüggően (ne legyen mindig 🔔) */
+.status.on::after { content: " 🔔"; }
+.status.off::after { content: " 🔕"; }
+
+.status.on { color: #1b5e20; }
+.status.off { color: #b71c1c; }
+
+/* ============================
+   META
+============================ */
+.meta { margin-top: 6px; }
+
+.meta-item {
+  font-size: 14px;
+  color: gray;
+  margin: 6px 0 0 0;
+  line-height: 1.35;
+}
+
+/* ============================
+   GOMBOK
+============================ */
+.actions { margin-top: 10px; display: grid; gap: 10px; }
+
+.actions button {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.2s, transform 0.1s, opacity 0.2s, box-shadow 0.2s;
+}
+
+/* Fókusz (billentyűzet) */
+.actions button:focus-visible {
+  outline: 3px solid rgba(25, 118, 210, 0.35);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+.actions button.toggle {
+  background-color: #4caf50;
+  color: white;
+}
+
+.actions button.toggle:hover { background-color: #43a047; }
+.actions button.toggle:active { transform: scale(0.98); }
+
+.actions button.toggle:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actions button.reset {
+  background-color: #9e9e9e;
+  color: white;
+}
+
+.actions button.reset:hover { background-color: #757575; }
+.actions button.reset:active { transform: scale(0.98); }
+
+.hint {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-left: 6px;
+}
+
+/* ============================
+   FIGYELMEZTETÉS
+============================ */
+/* Alap warning: 5-9 katt (sárgás, kevésbé “pánik”) */
+.warning {
+  color: #111;
+  background-color: #ffecb3;
+  font-weight: bold;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 1.3;
+  animation: pulse 1.2s ease-in-out 3;
+}
+
+/* Strong: 10 katt (piros, erős) */
+.warning.strong {
+  color: white;
+  background-color: #b71c1c;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* Reduced motion: ne animáljon */
+@media (prefers-reduced-motion: reduce) {
+  .warning { animation: none !important; }
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (min-width: 600px) {
+  body { padding: 24px; }
+
+  .about-card {
+    margin: 40px auto;
+    padding: 22px;
+    max-width: 520px;
+  }
+
+  .status { font-size: 20px; }
+
+  .actions {
+    grid-template-columns: auto auto;
+    justify-content: start;
+  }
+
+  .actions button {
+    width: auto;
+    min-width: 180px;
+    padding: 10px 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .about-card { max-width: 600px; }
+  .status { font-size: 22px; }
+}
+
+
+
+
+
