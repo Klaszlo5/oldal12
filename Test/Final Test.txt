@@ -1,0 +1,179 @@
+Frontend projektvédési felkészülő teszt
+=======================================
+
+ I. Alapvető bemutató kérdések
+
+1. Mi volt a frontend fejlesztés fő célja a projektben?
+2. Miért Reactet választottál a frontend megvalósításához?
+3. Mit jelent számodra a „modern webalkalmazás”?
+
+---
+
+ II. Technológiák és eszközök
+
+4. Mi a React legnagyobb előnye a hagyományos HTML/CSS/JS megoldásokkal szemben?
+5. Miért használtál Tailwind CSS-t, és miben segítette a munkádat?
+6. Miért döntöttél a Mantine UI használata mellett?
+7. Hogyan biztosítottad, hogy az alkalmazás reszponzív legyen?
+
+---
+
+ III. Navigáció és adatkezelés
+
+8. Mi a szerepe a `react-router-dom` könyvtárnak a projektben?
+9. Mi történik oldalváltáskor a felhasználói élmény szempontjából?
+10. Miért Axios-t használtál az API-hívásokhoz?
+11. Hogyan történik az adatküldés és -fogadás a frontend és a backend között?
+
+---
+
+ IV. Állapotkezelés
+
+12. Mit jelent az állapotkezelés egy frontend alkalmazásban?
+13. Milyen React hookokat használtál, és mire?
+14. Miért nem használtál külső state management megoldást (pl. Redux)?
+15. Mikor lenne indokolt egy nagyobb state management könyvtár használata?
+
+---
+
+ V. Dátumkezelés
+
+16. Miért nem natív JavaScript megoldással kezelted a dátumokat?
+17. Milyen előnyt adnak a dátumkezelő React könyvtárak?
+18. Hogyan javítják ezek a felhasználói élményt?
+
+---
+
+ VI. Biztonság
+
+19. Mit jelent a session-alapú hitelesítés?
+20. Miért előnyös, hogy érzékeny adatok nem kerülnek tárolásra a kliensoldalon?
+21. Milyen biztonsági kockázatokat csökkent ez a megoldás?
+
+---
+
+ VII. Összegző és „védős” kérdések
+
+22. Miben erős ez a frontend megoldás vizsgaremek szempontból?
+23. Ha újrakezdenéd, min változtatnál vagy fejlesztenél tovább?
+24. Hogyan tudna ez a frontend egy nagyobb, éles rendszerbe illeszkedni?
+25. Mit tanultál ebből a projektből frontend fejlesztőként?
+
+---
+
+🧠 Gyors válasz-puska (amit érdemes hangsúlyozni)
+
+* React → komponens-alapú, átlátható, újrafelhasználható
+* Tailwind + Mantine → gyors fejlesztés, egységes kinézet, kevesebb egyedi CSS
+* react-router-dom → SPA élmény, nincs oldal újratöltés
+* Axios → megbízható API kommunikáció
+* React hookok → egyszerű, projektmérethez ideális state kezelés
+* Dátumkezelő könyvtárak → kevesebb hiba, jobb UX
+* Session-alapú auth → biztonságosabb, nincs érzékeny adat a kliensen
+
+
+Megoldókulcs – Frontend projektvédés
+====================================
+
+
+I. Alapvető bemutató kérdések
+
+1. Mi volt a frontend fejlesztés fő célja a projektben?
+Egy átlátható, könnyen használható és modern felhasználói felület létrehozása, amely hatékonyan kommunikál a backenddel.
+
+2. Miért Reactet választottál?
+Mert komponensalapú, gyors, jól skálázható, és iparági standard megoldás modern webalkalmazásokhoz.
+
+3. Mit jelent a „modern webalkalmazás”?
+Reszponzív, gyors, SPA jellegű, naprakész technológiákat használ, és jó felhasználói élményt nyújt.
+
+---
+
+II. Technológiák és eszközök
+
+4. Mi a React legnagyobb előnye?
+A komponensekre bontott felépítés és az állapotvezérelt működés.
+
+5. Miért Tailwind CSS-t használtál?
+Gyors fejlesztést tesz lehetővé, kevesebb egyedi CSS kóddal, mégis egységes megjelenéssel.
+
+6. Miért Mantine UI?
+Mert kész, jól kinéző és testre szabható UI komponenseket biztosít.
+
+7. Hogyan biztosítottad a reszponzivitást?
+Flexbox, grid, Tailwind breakpointok és Mantine reszponzív komponensek használatával.
+
+---
+
+III. Navigáció és adatkezelés
+
+8. Mi a react-router-dom szerepe?
+Kliensoldali navigáció biztosítása újratöltés nélkül.
+
+9. Miért jobb ez a felhasználónak?
+Gyorsabb oldalváltás és folyamatos felhasználói élmény.
+
+10. Miért Axios?
+Egyszerű szintaxis, jó hibakezelés és széles körű elterjedtség.
+
+11. Hogyan történik a kommunikáció?
+HTTP kéréseken keresztül, JSON formátumban az API felé.
+
+---
+
+IV. Állapotkezelés
+
+12. Mit jelent az állapotkezelés?
+Az alkalmazás aktuális adatainak nyilvántartását és frissítését.
+
+13. Milyen hookokat használtál?
+`useState`, `useEffect`, esetenként `useContext`.
+
+14. Miért nem Redux?
+A projekt mérete nem indokolta, a React hookok elegendőek voltak.
+
+15. Mikor lenne indokolt Redux?
+Nagy, komplex alkalmazásoknál, sok globális állapottal.
+
+---
+
+V. Dátumkezelés
+
+16. Miért nem natív JavaScript?
+Bonyolultabb és több hibalehetőséget rejt.
+
+17. Milyen előnyt adnak a könyvtárak?
+Egyszerűbb kezelés, kevesebb hiba, jobb UX.
+
+18. Hogyan javítják az UX-et?
+Felhasználóbarát dátumválasztókkal és validációval.
+
+---
+
+VI. Biztonság
+
+19. Mit jelent a session-alapú hitelesítés?
+A bejelentkezési állapotot a szerver kezeli.
+
+20. Miért előnyös ez?
+Érzékeny adatok nem kerülnek a kliensoldalra.
+
+21. Milyen kockázatot csökkent?
+XSS és tokenlopás kockázatát.
+
+---
+
+VII. Összegző kérdések
+
+22. Miben erős vizsgaremek?
+Modern technológiák, letisztult kód, biztonságos működés.
+
+23. Min fejlesztenél tovább?
+Jogosultságkezelés, tesztelés, teljesítményoptimalizálás.
+
+24. Hogyan illeszkedik éles rendszerbe?
+Skálázható, bővíthető, szabványos API kommunikációval.
+
+25. Mit tanultál belőle?
+Komponensalapú gondolkodást, API-integrációt és UX szemléletet.
+

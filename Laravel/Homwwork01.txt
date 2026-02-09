@@ -1,0 +1,25 @@
+Egyszerű Laravel kezdő feladat
+
+Cél
+
+Egy Laravel projekt elindítása és egy egyszerű oldal megjelenítése.
+
+Feladat leírása
+
+1. Hozz létre egy új Laravel projektet a gépeden / Leírás Laravelhez.txt
+
+2. Indítsd el a projektet, és ellenőrizd, hogy a Laravel alapértelmezett kezdőoldala megjelenik a böngészőben. / Leírás Laravelhez.txt
+
+3. Készíts egy egyszerű oldalt:
+
+   1. Hozz létre egy route-ot a /hello útvonalra. / route -> web.php
+
+   2. Az oldal jelenítsen meg egy szöveget:
+
+     „Szia! Ez az első Laravel oldalam.”
+
+4. Nyisd meg a böngészőben a /hello oldalt, és ellenőrizd, hogy a szöveg látható. / http://localhost:8000/hello
+
+Elvárt eredmény
+
+A projekt sikeresen elindul, és az új oldal megjelenik a böngészőben.

@@ -1,0 +1,53 @@
+Laravel projekt létrehozása (csak egyszer kell)
+
+Fontos: ezt az egész folyamatot csak egyszer kell végigcsinálni, ha már fel van telepítve a PHP és a Composer.
+
+
+1. Ellenőrizd, hogy megvan-e a PHP és a Composer
+
+Terminálban futtasd:
+
+php -v
+composer -V
+
+Ha mindkettő verziószámot ír ki, akkor minden rendben.
+
+
+2. Laravel projekt létrehozása
+
+Ez a lépés kb. 5–10 percig tarthat, mert letölti a szükséges fájlokat.
+
+composer create-project laravel/laravel laravel-projekt
+
+A telepítés után lépj be a projekt mappájába:
+
+cd laravel-projekt
+
+
+3. Laravel fejlesztői szerver indítása
+
+Indítsd el a szervert:
+
+php artisan serve
+
+Ha ezt látod:
+
+INFO  Server running on [http://127.0.0.1:8000]
+
+akkor nyisd meg a böngészőben:
+
+http://localhost:8000/uzenofal
+
+Ha a Laravel welcome oldal jelenik meg, akkor a projekt sikeresen működik.
+**************************************************************************
+
+Ezt kell minden indításkor csinálnod a projektben
+
+1. php artisan serve
+
+2. http://localhost:8000/uzenofal
+
+
+
+
+ 
